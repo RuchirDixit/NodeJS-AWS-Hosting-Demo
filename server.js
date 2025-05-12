@@ -6,9 +6,9 @@ const port = process.env.PORT || 3000;
 // importing the dotenv module to use environment variables:
 require("dotenv").config();
 
-const api_key = process.env.SECRET_KEY;
+// const api_key = process.env.SECRET_KEY;
 
-const stripe = require("stripe")(api_key);
+// const stripe = require("stripe")(api_key);
 
 // ------------ Imports & necessary things here ------------
 
@@ -53,28 +53,28 @@ app.get("/workshop3", (req, res) => {
 // ____________________________________________________________________________________
 
 const domainURL = process.env.DOMAIN;
-app.post("/create-checkout-session/:pid", async (req, res) => {
+// app.post("/create-checkout-session/:pid", async (req, res) => {
   
-  const priceId = req.params.pid;
+//   const priceId = req.params.pid;
   
-  const session = await stripe.checkout.sessions.create({
-    mode: "payment",
-    success_url: `${domainURL}/success?id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${domainURL}/cancel`,
-    payment_method_types: ["card"],
-    line_items: [
-      {
-        price: priceId,
-        quantity: 1,
-      },
-    ],
-    // allowing the use of promo-codes:
-    allow_promotion_codes: true,
-  });
-  res.json({
-    id: session.id,
-  });
-});
+//   const session = await stripe.checkout.sessions.create({
+//     mode: "payment",
+//     success_url: `${domainURL}/success?id={CHECKOUT_SESSION_ID}`,
+//     cancel_url: `${domainURL}/cancel`,
+//     payment_method_types: ["card"],
+//     line_items: [
+//       {
+//         price: priceId,
+//         quantity: 1,
+//       },
+//     ],
+//     // allowing the use of promo-codes:
+//     allow_promotion_codes: true,
+//   });
+//   res.json({
+//     id: session.id,
+//   });
+// });
 
 // Server listening:
 app.listen(port, () => {
