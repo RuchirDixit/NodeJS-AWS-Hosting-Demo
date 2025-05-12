@@ -31,6 +31,9 @@ npm run start
 ```
 ssh -i instance.pem ubunutu@<IP_ADDRESS>
 ```
+ OR
+
+  You can also use applications like `MobaXterm` to connect to VM.
 
 ### Configuring Ubuntu on remote VM
 
